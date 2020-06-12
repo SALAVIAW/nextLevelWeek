@@ -61,9 +61,17 @@ db.serialize(() => {
 
     // db.run(query, values, afterInsertData)
 
+    // 4 Deletar um dado da tabela
+    // db.run(`DELETE FROM places WHERE id = ?`, [5], function(err) {
+    //     if(err) {
+    //         return console.log(err)
+    //     }
+
+    //     console.log("Registro deletado com sucesso.")
+    // })
 
     // 3 Consultar os dados da tabela
-    // db.all(`SELECT name FROM places`, function(err, rows) {
+    // db.all(`SELECT * FROM places`, function(err, rows) {
     //     if(err) {
     //         return console.log(err)
     //     }
@@ -71,13 +79,6 @@ db.serialize(() => {
     //     console.log(rows)
     // })
 
-    // 4 Deletar um dado da tabela
-    // db.run(`DELETE FROM places WHERE id = ?`, [], function(err) {
-    //     if(err) {
-    //         return console.log(err)
-    //     }
-
-    //     console.log("Registro deletado com sucesso.")
-    // })
+    
 
 })
