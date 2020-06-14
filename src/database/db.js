@@ -26,7 +26,7 @@ db.serialize(() => {
     //     );
     // `)
 
-    // // 2 inserir dados na tabela
+    // 2 inserir dados na tabela
     // const query = `
     //     INSERT INTO places (
     //         image,
@@ -41,7 +41,7 @@ db.serialize(() => {
 
     // const values = [
     //     "https://images.unsplash.com/photo-1567093321629-c23611f44d52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    //     "PaperSider",
+    //     "Colectoria",
     //     "Guilherme Gembala, Jardim America",
     //     "Numero 260",
     //     "Santa Catarina",
@@ -60,9 +60,19 @@ db.serialize(() => {
 
 
     // db.run(query, values, afterInsertData)
-
+    
+    // 3 Consultar os dados da tabela
+    // db.all(`SELECT * FROM places`, function(err, rows) {
+        //     if(err) {
+            //         return console.log(err)
+            //     }
+            //     console.log("Aqui estao seus registros: ")
+            //     console.log(rows)
+            // })
+            
+    
     // 4 Deletar um dado da tabela
-    // db.run(`DELETE FROM places WHERE id = ?`, [5], function(err) {
+    // db.run(`DELETE FROM places WHERE id = ?`, [8], function(err) {
     //     if(err) {
     //         return console.log(err)
     //     }
@@ -70,15 +80,5 @@ db.serialize(() => {
     //     console.log("Registro deletado com sucesso.")
     // })
 
-    // 3 Consultar os dados da tabela
-    // db.all(`SELECT * FROM places`, function(err, rows) {
-    //     if(err) {
-    //         return console.log(err)
-    //     }
-    //     console.log("Aqui estao seus registros: ")
-    //     console.log(rows)
-    // })
-
-    
 
 })

@@ -47,25 +47,20 @@ document
 
 // itens de coleta
 // pegando todos os itens dentro de li
-
 const itemsToCollect = document.querySelectorAll(".items-grid li")
 
 for (const item of itemsToCollect) {
     item.addEventListener("click", handleSelectedItem)
 }
 
-
-
-
 const collectedItems = document.querySelector("input[name=items")
 
-
 let selectedItems = []
-
 
 function handleSelectedItem (event) {
     const itemLi = event.target
 
+    
     //add or remove class in JavaScript
     itemLi.classList.toggle("selected")
 

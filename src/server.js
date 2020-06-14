@@ -8,6 +8,9 @@ const db = require("./database/db") //posso ou nao colocar o .js aqui nessa linh
 // Configurar pasta publica
 server.use(express.static("public"))
 
+//Habilitar o uso do req.body na nossa aplicacao
+server.use(express.urlencoded({ extended: true}))
+
 
 // utilizando template engine
 const nunjucks = require("nunjucks")
@@ -25,8 +28,65 @@ server.get("/", (req, res) => {
 })
 
 server.get("/create-point", (req, res) => {
+
+    //req.query: Query strings da nossa url
+    // console.log(req.query)
+
+
     return res.render("create-point.html")
 })
+
+server.post("/savepoint", (req, res) =>{
+
+    //req.body: O corpo do nosso formulario
+    // console.log(req.body)
+
+    //inserir dados no banco de dados
+    const query = `
+        INSERT INTO places (
+            image,
+            name,
+            address,
+            address2,
+            state,
+            city,
+            items
+        ) VALUES (?,?,?,?,?,?,?);
+    `
+
+    const values = [
+       req.body.image,
+       req.body.name,
+       req.body.address,
+       req.body.address2,
+       req.body.state,
+       req.body.city,
+       req.body.items
+    ]
+
+    function afterInsertData(err) {
+        if(err) {
+            return console.log(err)
+        }
+
+        console.log("Castrado com sucesso")
+        console.log(this)
+
+        return res.render("create-point.html", { saved: true})
+    }
+
+
+    db.run(query, values, afterInsertData)
+
+
+    
+})
+
+
+
+
+
+
 
 server.get("/search", (req, res) => {
 
